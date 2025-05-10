@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DINOv2 – Paper Review</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; background: #fdfdfd; color: #222; }
+    h1, h2, h3 { color: #1e2d50; }
+    .section { margin-bottom: 2rem; }
+    a { color: #2c5cc5; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .badge {
+      display: inline-block;
+      background-color: #ffd700;
+      color: #000;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.8rem;
+      border-radius: 5px;
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>DINOv2: Learning Robust Visual Features without Supervision <span class="badge">✅ Reviewed</span></h1>
+  <p><strong>Authors:</strong> Maxime Oquab et al. (Meta AI Research), 2023</p>
+  <p><strong>Link:</strong> <a href="https://openreview.net/forum?id=a68SUt6zFt" target="_blank">OpenReview</a></p>
+
+  <div class="section">
+    <h2>🧠 Main Contributions</h2>
+    <ul>
+      <li>Introduces <strong>DINOv2</strong>, a series of high-performing self-supervised visual transformers trained on a curated dataset (LVD-142M) without labels.</li>
+      <li>Combines and scales up techniques from DINO, iBOT, SwAV, and KoLeo regularization into a fast, memory-efficient training pipeline.</li>
+      <li>Surpasses previous self-supervised and even weakly-supervised (e.g., OpenCLIP) models across benchmarks like ImageNet, ADE20K, and iNaturalist with frozen features alone.</li>
+      <li>Releases open-source models, code, and a training recipe suitable for large ViTs (up to ViT-g/14 with 1B+ parameters).</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>⚠️ Limitations & Failure Cases</h2>
+    <ul>
+      <li>Though text-free, DINOv2 still requires large compute (20+ A100 GPUs) and significant carbon emissions (~3.7 tCO₂e per run).</li>
+      <li>Performance is sensitive to image resolution and curated data—uncurated data (e.g. raw web crawl) leads to weaker features.</li>
+      <li>Despite gains in fairness over SEERv2, DINOv2 still shows regional performance disparities (Africa -25.7% vs Europe).</li>
+      <li>Fails to reach absolute state-of-the-art in dense prediction tasks unless plugged into strong decoders (e.g. Mask2Former).</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🚀 Key Technical Innovations</h2>
+    <ul>
+      <li><strong>Discriminative SSL at Scale</strong>: Combines DINO+iBOT objectives with Sinkhorn centering and KoLeo regularization.</li>
+      <li><strong>Curated Dataset Creation</strong>: LVD-142M dataset built via self-supervised visual similarity retrieval from 1.2B web images.</li>
+      <li><strong>Memory Efficiency</strong>: Implements FlashAttention, efficient stochastic depth, and FSDP for scalable ViT training.</li>
+      <li><strong>Distillation Pipeline</strong>: Distills ViT-g/14 to smaller models (e.g., ViT-B/14) using EMA-student learning.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📈 Empirical Results</h2>
+    <ul>
+      <li><strong>ImageNet-1k (linear probe):</strong> 86.5% (ViT-g/14, frozen) — surpassing OpenCLIP and EVA-CLIP.</li>
+      <li><strong>ADE20k segmentation:</strong> 53.0 mIoU (linear + multiscale, ViT-g).</li>
+      <li><strong>iNaturalist 2021:</strong> 85.7% accuracy — +9.7% over OpenCLIP.</li>
+      <li><strong>Robustness:</strong> +29.6% improvement over iBOT on ImageNet-A (adversarial test set).</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>💡 Reflections</h2>
+    <p>DINOv2 shows that strong, general-purpose visual representations do not require labels or text. With careful data curation and architectural tuning, self-supervised ViTs rival and sometimes surpass supervised and CLIP-style models. This is an important step toward robust, reusable vision backbones for robotics, AR/VR, and embodied AI.</p>
+    <p>Its performance on patch-level tasks also suggests future potential for pixel-level control policies and multimodal grounding, especially when combined with tactile inputs or LLMs in embodied agents.</p>
+  </div>
+
+  <footer style="margin-top: 3rem; font-size: 0.9rem; color: gray;">
+    Reviewed by Linlin Zhang – Spring 2025 – COMS6998E: Robot Perception & Learning
+  </footer>
+
+</body>
+</html>
