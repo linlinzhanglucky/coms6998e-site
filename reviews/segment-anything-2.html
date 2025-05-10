@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Segment Anything 2 – Paper Review by Linlin Zhang</title>
+  <title>Emerging Properties in Self-Supervised Vision Transformers – Paper Review by Linlin Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
@@ -35,30 +35,51 @@
 </head>
 <body>
   <div class="container">
-    <h1>📄 Segment Anything 2 (2024)</h1>
-    <p><strong>Paper Title:</strong> Segment Anything 2: Segment Anything in Images and Videos<br>
-    <strong>Authors:</strong> Nikhila Ravi et al.<br>
+    <h1>📄 Emerging Properties in Self-Supervised Vision Transformers (2021)</h1>
+    <p><strong>Paper Title:</strong> Emerging Properties in Self-Supervised Vision Transformers<br>
+    <strong>Authors:</strong> Mathilde Caron et al.<br>
     <strong>Review by:</strong> Linlin Zhang<br>
     <strong>Course:</strong> COMS6998E – Spring 2025</p>
 
     <div class="section">
       <h2>🧠 Main Contribution</h2>
       <p>
-        Segment Anything 2 (SAM 2) extends the original SAM framework from static images to dynamic video content. The paper introduces a unified model for promptable segmentation across both spatial and temporal domains. A major innovation lies in its ability to perform zero-shot segmentation in videos using a learned video foundation model. The authors propose several strategies including spatio-temporal mask propagation, efficient memory management, and cross-frame attention to handle long sequences. The system is trained on a new large-scale video dataset to support strong generalization across tasks.
+        This paper explores how Vision Transformers (ViTs) pretrained with self-supervised learning exhibit emergent properties distinct from those of supervised ViTs or CNNs. Key observations include the spontaneous emergence of object-level segmentation in self-attention maps and the effectiveness of these features for k-NN classification. The authors introduce <strong>DINO</strong> (self-distillation with no labels), which combines multi-crop training and a momentum encoder to effectively train ViTs without requiring labels.
       </p>
     </div>
 
     <div class="section">
       <h2>⚠️ Limitations & Failure Cases</h2>
       <p>
-        While SAM 2 excels in promptable video segmentation, it still faces challenges in accurately segmenting objects that undergo significant deformation, occlusion, or fast motion. Additionally, the memory and computational requirements for long video sequences are non-trivial, which limits deployment in real-time or resource-constrained settings. The quality of segmentations degrades in low-light conditions and fast camera motion due to weak temporal consistency. The reliance on high-quality masks from SAM 1 also introduces upstream biases.
+        While DINO performs well, it still requires significant compute (e.g., multi-GPU clusters for ViT-B/8 training) and is sensitive to training configurations like temperature and centering. Although DINO is less reliant on batch normalization, the model still requires careful tuning of momentum and patch size. Moreover, the framework does not inherently address long-horizon temporal dynamics or multi-modal learning beyond vision.
       </p>
     </div>
 
     <div class="section">
       <h2>💡 Suggested Improvements</h2>
       <p>
-        Future work could explore more robust temporal modeling with lightweight recurrent or transformer architectures designed for long-horizon memory. Incorporating multi-modal cues such as audio or IMU data might help maintain segmentation stability during fast motion. Self-supervised pretraining on video-level transformations could reduce the dependence on manual annotations. Finally, integrating dynamic prompt adaptation across frames (instead of static prompts) could significantly improve long-term consistency in real-world deployment scenarios.
+        Future improvements could include reducing reliance on handcrafted augmentations (e.g., learnable augmentation policies), improving training stability under small batch sizes, and extending DINO to multi-modal self-supervision (e.g., video+text or video+audio). Integrating DINO with lightweight ViT variants or sparse attention mechanisms could make it more deployable in edge robotics or real-time applications. Enhanced self-attention interpretability and dynamic token selection would also be promising directions.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>📈 Empirical Highlights</h2>
+      <p>
+        DINO ViT-B/8 achieves 80.1% ImageNet top-1 with linear probing and 77.4% with k-NN – outperforming prior self-supervised and supervised models. It also shows strong performance on retrieval and segmentation benchmarks, including 85.5% mAP on Copydays and 71.4 (J&F)m on DAVIS 2017. These results confirm the strength of DINO features for both global and dense tasks, without any fine-tuning.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>🔍 Notable Technical Innovations</h2>
+      <p>
+        The paper introduces a <strong>BN-free projection head</strong> with L2 normalization, a dual-network setup with exponential moving average (EMA) updates for the teacher, and a balanced use of <strong>centering + sharpening</strong> to avoid collapse. Importantly, it finds that patch size and multi-crop views are critical for performance, with 8×8 patches enabling finer segmentation and better k-NN accuracy. The teacher always outperforms the student during training, resembling Polyak averaging.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>🧠 Reflection</h2>
+      <p>
+        This paper laid the groundwork for BERT-style pretraining in vision, making ViTs more practical and semantically rich even without supervision. The attention maps generated by DINO ViTs reveal intuitive object boundaries, suggesting their potential for weakly supervised segmentation and few-shot recognition. Overall, the study marks a paradigm shift in how we understand ViT representation learning and motivates further research on emergent vision-language grounding without labels.
       </p>
     </div>
 
