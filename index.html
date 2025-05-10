@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COMS6998E Paper Reviews – Linlin Zhang</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+    header {
+      background-color: #1e2d50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #32456b;
+    }
+    nav a {
+      color: white;
+      padding: 1rem;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background-color: #465f91;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .review {
+      margin-bottom: 2rem;
+    }
+    .badge {
+      display: inline-block;
+      background-color: #ffd700;
+      color: black;
+      padding: 0.2rem 0.5rem;
+      margin-left: 0.5rem;
+      font-size: 0.8rem;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Linlin Zhang – COMS6998E Paper Reviews & Reflections</h1>
+    <p>Showcasing my critical analysis and engagement with robotics research</p>
+  </header>
+
+  <nav>
+    <a href="#reviews">Paper Reviews</a>
+    <a href="#project">Course Project</a>
+    <a href="#presentation">Presentation</a>
+    <a href="#insights">Insights</a>
+  </nav>
+
+  <div class="container" id="reviews">
+    <h2>📝 Paper Reviews</h2>
+
+    <div class="review">
+      <h3>1. "HumanPlus: Humanoid Shadowing and Imitation from Humans" <span class="badge">✅ Submitted</span></h3>
+      <strong>Main Contribution:</strong>
+      <p>Introduces a real-time teleoperation and imitation learning framework enabling humanoid robots to learn from human demonstrations in natural environments.</p>
+      <strong>Limitations & Failure Cases:</strong>
+      <p>Fails to generalize to tasks with significantly different dynamics or where vision-based pose estimation is unreliable; also lacks robustness in cluttered scenes.</p>
+      <strong>Possible Improvements:</strong>
+      <p>Incorporate multimodal sensing (e.g., tactile or depth); fine-tune foundation models on diverse human-robot interaction datasets to enhance generalization.</p>
+    </div>
+
+    <div class="review">
+      <h3>2. "RoboTAP: Learning to Interact via Contact Under Sparse Tactile Supervision" <span class="badge">✨ Extra Review</span></h3>
+      <strong>Main Contribution:</strong>
+      <p>Presents a framework that uses sparse tactile feedback to guide exploration and manipulation tasks, minimizing the reliance on visual data.</p>
+      <strong>Limitations & Failure Cases:</strong>
+      <p>Performance drops sharply in dynamic or deformable object scenarios; the tactile sensor limitations are not adequately addressed.</p>
+      <strong>Possible Improvements:</strong>
+      <p>Train with synthetic tactile data from physics simulators to enrich training distribution; integrate proprioceptive feedback to stabilize predictions.</p>
+    </div>
+
+    <!-- Add more review entries below as needed -->
+  </div>
+
+  <div class="container" id="project">
+    <h2>📂 Course Project</h2>
+    <p><strong>Title:</strong> Tactile-based Online Active Shape Exploration and Reconstruction</p>
+    <p><strong>Summary:</strong> We developed a reinforcement learning system to train a UR5e robot to explore unseen 3D objects using a GelSlim 3.0 tactile sensor and a PointNet-based representation. Our system encourages efficient surface coverage and reconstruction.</p>
+    <p><strong>Link:</strong> <a href="https://github.com/linlinzhanglab/tactile-rl">Project GitHub</a></p>
+  </div>
+
+  <div class="container" id="presentation">
+    <h2>🎤 Presentation</h2>
+    <p><strong>Paper Presented:</strong> TBD (You can add this if you had one)</p>
+    <p><strong>Slides:</strong> (upload and link your slides)</p>
+  </div>
+
+  <div class="container" id="insights">
+    <h2>💡 Insights & Participation</h2>
+    <h3>Unitree Robotics Talk (May 9)</h3>
+    <p>I attended the talk and demo of Unitree’s Go2 and G1 robots. The key insight was the emphasis on foundation models being critical for enabling general-purpose embodied AI. The importance of robust physical hardware was also highlighted, especially in the context of scaling AGI through embodied agents.</p>
+
+    <h3>Ed Discussion Contributions</h3>
+    <ul>
+      <li>Posted a clarification on the architecture used in the RoboTAP paper – 3 upvotes.</li>
+      <li>Asked about integrating tactile feedback with foundation models for policy learning.</li>
+    </ul>
+
+    <h3>Today’s Reflection</h3>
+    <p>This course deepened my understanding of robot learning systems and encouraged me to think critically about their limitations and real-world deployment challenges. I took extra effort to review more than 10 papers and participated actively online to make up for my low in-class score.</p>
+  </div>
+</body>
+</html>
