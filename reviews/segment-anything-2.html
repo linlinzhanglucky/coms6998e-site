@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAM 2 Review – Segment Anything in Images and Videos</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 2rem; line-height: 1.6; }
+    .container { background: white; padding: 2rem; max-width: 900px; margin: auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h1, h2, h3 { color: #1e2d50; }
+    ul { padding-left: 1.2rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SAM 2: Segment Anything in Images and Videos</h1>
+    <h2>🔍 Overview</h2>
+    <p><strong>SAM 2</strong> is a general-purpose segmentation foundation model capable of segmenting both <strong>images and videos</strong> using a unified framework. It improves upon the original SAM by introducing motion-aware ViT architecture, improved prompting, and temporal consistency.</p>
+
+    <h2>📌 Main Contributions</h2>
+    <ul>
+      <li>Unified segmentation architecture for both static images and temporal videos.</li>
+      <li>ViT-based encoder augmented with motion embeddings for improved video understanding.</li>
+      <li>Support for multi-modal prompts: points, boxes, masks, and text.</li>
+      <li>Training over 2 billion masks using large-scale image-video datasets.</li>
+    </ul>
+
+    <h2>⚙️ Architecture</h2>
+    <ul>
+      <li><strong>Image Encoder:</strong> ViT-H backbone with motion-aware extensions.</li>
+      <li><strong>Prompt Encoder:</strong> Handles point, box, mask, and text prompts.</li>
+      <li><strong>Mask Decoder:</strong> Produces high-quality segmentation masks with confidence scores.</li>
+      <li><strong>Training Strategy:</strong> Joint training on image and video data with hybrid segmentation loss.</li>
+    </ul>
+
+    <h2>📊 Experimental Results</h2>
+    <ul>
+      <li>Benchmarked on <strong>YouTube-VIS</strong>, <strong>DAVIS</strong>, <strong>COCO</strong>, and <strong>LVIS</strong>.</li>
+      <li>Surpasses SAM and other baselines on mIoU, AP, and J&F scores.</li>
+      <li>Demonstrates faster inference in auto and interactive segmentation tasks.</li>
+    </ul>
+
+    <h2>🖼️ Qualitative Examples</h2>
+    <p>Examples include multi-object segmentation in videos, instance tracking across frames, and prompt-based refinement using few clicks or text.</p>
+
+    <h2>🚧 Limitations</h2>
+    <ul>
+      <li>Struggles with <strong>fast motion blur</strong> or low-light video conditions.</li>
+      <li>Fails to segment rare object categories with very few annotations in the training set.</li>
+    </ul>
+
+    <h2>🌟 Suggested Improvements</h2>
+    <ul>
+      <li>Incorporate multi-scale temporal transformers for longer context aggregation.</li>
+      <li>Fine-tune with domain-specific datasets (e.g., medical or autonomous driving).</li>
+    </ul>
+
+    <h2>✅ Conclusion</h2>
+    <p><strong>SAM 2</strong> sets a new standard for general-purpose segmentation across modalities. It is an important step toward embodied AI, enabling large-scale interactive annotation, robotic perception, and vision-language integration.</p>
+
+    <footer style="margin-top: 2rem; font-size: 0.9rem; color: gray;">Reviewed by Linlin Zhang | Spring 2025 | COMS6998E</footer>
+  </div>
+</body>
+</html>

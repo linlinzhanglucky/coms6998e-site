@@ -21,6 +21,7 @@
       display: flex;
       justify-content: center;
       background-color: #32456b;
+      flex-wrap: wrap;
     }
     nav a {
       color: white;
@@ -31,7 +32,7 @@
       background-color: #465f91;
     }
     .container {
-      max-width: 900px;
+      max-width: 960px;
       margin: 2rem auto;
       padding: 2rem;
       background: white;
@@ -41,12 +42,15 @@
     h1, h2 {
       color: #1e2d50;
     }
+    p {
+      margin-bottom: 1rem;
+    }
     ul {
       list-style-type: none;
       padding-left: 1rem;
     }
     li {
-      margin: 0.5rem 0;
+      margin: 0.4rem 0;
     }
     li a {
       color: #2c5cc5;
@@ -57,10 +61,10 @@
       text-decoration: underline;
     }
     .week {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
     }
     footer {
-      margin-top: 3rem;
+      margin-top: 4rem;
       text-align: center;
       font-size: 0.9rem;
       color: gray;
@@ -69,32 +73,32 @@
 </head>
 <body>
   <header>
-    <h1>📚 COMS6998E Paper Review Index</h1>
-    <p>All review files authored by Linlin Zhang (Spring 2025)</p>
+    <h1>📚 COMS6998E: Full Paper Review Index</h1>
+    <p>By Linlin Zhang – Spring 2025 | Columbia University</p>
   </header>
 
   <nav>
     <a href="index.html">🏠 Home</a>
-    <a href="review_index_data.html">📖 All Reviews</a>
+    <a href="review_index_data.html">📖 Review Index</a>
     <a href="https://github.com/linlinzhanglucky/coms6998e-site" target="_blank">📂 GitHub Repo</a>
   </nav>
 
   <div class="container">
-    <p>This page links to all my detailed review write-ups for papers in COMS6998E. Click any title below to view the full analysis.</p>
+    <p>Welcome! This page contains links to all of my detailed reviews for the required and optional papers covered in COMS6998E: Robot Learning. Reviews are grouped by weekly topic.</p>
 
     <div class="week">
       <h2>Week 3 – 2D Perception</h2>
       <ul>
         <li><a href="reviews/dinov2.html">DINOv2 (2023)</a></li>
         <li><a href="reviews/segment-anything-2.html">Segment Anything 2 (2024)</a></li>
-        <li><a href="reviews/emerging-properties.html">Emerging Properties in Self-Supervised Vision Transformers (2021)</a></li>
+        <li><a href="reviews/emerging-properties.html">Emerging Properties in Vision Transformers (2021)</a></li>
       </ul>
     </div>
 
     <div class="week">
       <h2>Week 4 – Representation Learning</h2>
       <ul>
-        <li><a href="reviews/r3m.html">R3M: A Universal Visual Representation for Robotic Manipulation (2022)</a></li>
+        <li><a href="reviews/r3m.html">R3M: Robotic Manipulation (2022)</a></li>
         <li><a href="reviews/d3fields.html">D3Fields (2024)</a></li>
       </ul>
     </div>
@@ -107,10 +111,10 @@
       </ul>
     </div>
 
-    <!-- Add additional weeks below -->
+    <!-- Add Week 6+ review links below as you complete them -->
 
     <footer>
-      Last updated: Spring 2025 | Author: Linlin Zhang
+      Last updated: Spring 2025 | © Linlin Zhang
     </footer>
   </div>
 </body>
