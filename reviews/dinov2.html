@@ -26,17 +26,13 @@
       line-height: 1.6;
     }
     ul {
-      padding-left: 1.2rem;
+      padding-left: 1.5rem;
     }
     .section {
       margin-top: 2rem;
     }
     a {
       color: #2c5cc5;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
@@ -53,50 +49,50 @@
     <div class="section">
       <h2>🧠 Main Contributions</h2>
       <ul>
-        <li>Introduces <strong>DINOv2</strong>, a series of high-performing self-supervised ViTs trained on LVD-142M (curated dataset).</li>
-        <li>Unifies techniques from DINO, iBOT, SwAV, and KoLeo into a fast, memory-efficient training pipeline.</li>
-        <li>Outperforms previous self-supervised and weakly-supervised models on benchmarks like ImageNet, ADE20K, iNaturalist.</li>
-        <li>Releases models, code, and a scalable recipe for large ViTs (e.g., ViT-g/14 with 1B+ params).</li>
+        <li>Introduces <strong>DINOv2</strong>, a set of scalable, self-supervised ViTs trained on LVD-142M without labels.</li>
+        <li>Combines DINO, iBOT, SwAV, KoLeo into a unified, efficient SSL training pipeline.</li>
+        <li>Beats OpenCLIP and EVA-CLIP on multiple benchmarks using frozen features.</li>
+        <li>Releases open-source code, models, and training recipes for scaling up to ViT-g/14 (1B+ parameters).</li>
       </ul>
     </div>
 
     <div class="section">
       <h2>⚠️ Limitations & Failure Cases</h2>
+      <p>
+        Despite its strengths, DINOv2 still faces key limitations:
+      </p>
       <ul>
-        <li>Requires large-scale compute (20+ A100 GPUs) and produces ~3.7 tCO₂e per run.</li>
-        <li>Performance drops on uncurated data (e.g., noisy web images).</li>
-        <li>Still shows regional disparities (e.g., Africa −25.7% vs Europe on SEERv2 fairness eval).</li>
-        <li>Fails to match SOTA in dense prediction without strong downstream decoders like Mask2Former.</li>
+        <li>Requires substantial compute (20+ A100 GPUs), leading to ~3.7 tCO₂e per training run.</li>
+        <li>Suffers performance drops when trained on noisy, uncurated datasets.</li>
+        <li>Fairness issues persist — performance is uneven across geographic regions.</li>
+        <li>Needs strong decoders (e.g. Mask2Former) for dense prediction tasks to reach SOTA.</li>
       </ul>
     </div>
 
     <div class="section">
       <h2>🚀 Key Technical Innovations</h2>
       <ul>
-        <li><strong>Discriminative SSL:</strong> Combines DINO + iBOT with Sinkhorn centering & KoLeo regularization.</li>
-        <li><strong>Dataset:</strong> LVD-142M dataset built via self-supervised similarity search over 1.2B web images.</li>
-        <li><strong>Efficiency:</strong> Uses FlashAttention, stochastic depth, and FSDP to scale ViTs.</li>
-        <li><strong>Distillation:</strong> Transfers knowledge from ViT-g/14 to smaller ViTs (e.g., ViT-B/14) via EMA.</li>
+        <li><strong>Discriminative SSL:</strong> Blends DINO+iBOT losses with Sinkhorn + KoLeo regularization.</li>
+        <li><strong>LVD-142M:</strong> Curated dataset using visual similarity across 1.2B images.</li>
+        <li><strong>Training Efficiency:</strong> Uses FlashAttention, stochastic depth, FSDP to scale training.</li>
+        <li><strong>Knowledge Distillation:</strong> Transfers from ViT-g/14 to ViT-B/14 via EMA-student pipeline.</li>
       </ul>
     </div>
 
     <div class="section">
       <h2>📈 Empirical Results</h2>
       <ul>
-        <li><strong>ImageNet-1k:</strong> 86.5% (ViT-g/14, frozen) — surpasses OpenCLIP & EVA-CLIP.</li>
-        <li><strong>ADE20K:</strong> 53.0 mIoU (ViT-g, multiscale, linear probe).</li>
-        <li><strong>iNaturalist 2021:</strong> 85.7% — +9.7% over OpenCLIP.</li>
-        <li><strong>Robustness:</strong> +29.6% improvement over iBOT on ImageNet-A.</li>
+        <li><strong>ImageNet-1k:</strong> 86.5% (ViT-g/14, frozen features).</li>
+        <li><strong>ADE20k:</strong> 53.0 mIoU (ViT-g, multiscale, linear probe).</li>
+        <li><strong>iNaturalist:</strong> 85.7% — +9.7% over OpenCLIP.</li>
+        <li><strong>Robustness:</strong> +29.6% gain on ImageNet-A compared to iBOT.</li>
       </ul>
     </div>
 
     <div class="section">
       <h2>💡 Reflections</h2>
       <p>
-        DINOv2 highlights how curated data and scalable self-supervised training can rival or outperform supervised models without labels. Its simplicity and frozen-feature strength make it well-suited for downstream robotics, AR/VR, and embodied AI tasks.
-      </p>
-      <p>
-        Future directions could include cross-modal distillation (e.g., audio-video, tactile-vision) and integration into closed-loop policies for robotic control.
+        DINOv2 highlights the strength of label-free learning on curated web-scale data. Its generalization on frozen features and minimal architecture changes make it an attractive vision backbone for robotics, AR/VR, and embodied AI. Combining DINOv2 with multimodal streams (e.g., tactile or LLM-based grounding) could push robotic intelligence further.
       </p>
     </div>
 
