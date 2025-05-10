@@ -2,63 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Segment Anything 2 – Paper Review by Linlin Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAM 2 Review – Segment Anything in Images and Videos</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 2rem; line-height: 1.6; }
-    .container { background: white; padding: 2rem; max-width: 900px; margin: auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    h1, h2, h3 { color: #1e2d50; }
-    ul { padding-left: 1.2rem; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 860px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+    h1, h2 {
+      color: #1e2d50;
+    }
+    p {
+      line-height: 1.6;
+    }
+    .section {
+      margin-top: 2rem;
+    }
+    a {
+      color: #2c5cc5;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>SAM 2: Segment Anything in Images and Videos</h1>
-    <h2>🔍 Overview</h2>
-    <p><strong>SAM 2</strong> is a general-purpose segmentation foundation model capable of segmenting both <strong>images and videos</strong> using a unified framework. It improves upon the original SAM by introducing motion-aware ViT architecture, improved prompting, and temporal consistency.</p>
+    <h1>📄 Segment Anything 2 (2024)</h1>
+    <p><strong>Paper Title:</strong> Segment Anything 2: Segment Anything in Images and Videos<br>
+    <strong>Authors:</strong> Nikhila Ravi et al.<br>
+    <strong>Review by:</strong> Linlin Zhang<br>
+    <strong>Course:</strong> COMS6998E – Spring 2025</p>
 
-    <h2>📌 Main Contributions</h2>
-    <ul>
-      <li>Unified segmentation architecture for both static images and temporal videos.</li>
-      <li>ViT-based encoder augmented with motion embeddings for improved video understanding.</li>
-      <li>Support for multi-modal prompts: points, boxes, masks, and text.</li>
-      <li>Training over 2 billion masks using large-scale image-video datasets.</li>
-    </ul>
+    <div class="section">
+      <h2>🧠 Main Contribution</h2>
+      <p>
+        Segment Anything 2 (SAM 2) extends the original SAM framework from static images to dynamic video content. The paper introduces a unified model for promptable segmentation across both spatial and temporal domains. A major innovation lies in its ability to perform zero-shot segmentation in videos using a learned video foundation model. The authors propose several strategies including spatio-temporal mask propagation, efficient memory management, and cross-frame attention to handle long sequences. The system is trained on a new large-scale video dataset to support strong generalization across tasks.
+      </p>
+    </div>
 
-    <h2>⚙️ Architecture</h2>
-    <ul>
-      <li><strong>Image Encoder:</strong> ViT-H backbone with motion-aware extensions.</li>
-      <li><strong>Prompt Encoder:</strong> Handles point, box, mask, and text prompts.</li>
-      <li><strong>Mask Decoder:</strong> Produces high-quality segmentation masks with confidence scores.</li>
-      <li><strong>Training Strategy:</strong> Joint training on image and video data with hybrid segmentation loss.</li>
-    </ul>
+    <div class="section">
+      <h2>⚠️ Limitations & Failure Cases</h2>
+      <p>
+        While SAM 2 excels in promptable video segmentation, it still faces challenges in accurately segmenting objects that undergo significant deformation, occlusion, or fast motion. Additionally, the memory and computational requirements for long video sequences are non-trivial, which limits deployment in real-time or resource-constrained settings. The quality of segmentations degrades in low-light conditions and fast camera motion due to weak temporal consistency. The reliance on high-quality masks from SAM 1 also introduces upstream biases.
+      </p>
+    </div>
 
-    <h2>📊 Experimental Results</h2>
-    <ul>
-      <li>Benchmarked on <strong>YouTube-VIS</strong>, <strong>DAVIS</strong>, <strong>COCO</strong>, and <strong>LVIS</strong>.</li>
-      <li>Surpasses SAM and other baselines on mIoU, AP, and J&F scores.</li>
-      <li>Demonstrates faster inference in auto and interactive segmentation tasks.</li>
-    </ul>
+    <div class="section">
+      <h2>💡 Suggested Improvements</h2>
+      <p>
+        Future work could explore more robust temporal modeling with lightweight recurrent or transformer architectures designed for long-horizon memory. Incorporating multi-modal cues such as audio or IMU data might help maintain segmentation stability during fast motion. Self-supervised pretraining on video-level transformations could reduce the dependence on manual annotations. Finally, integrating dynamic prompt adaptation across frames (instead of static prompts) could significantly improve long-term consistency in real-world deployment scenarios.
+      </p>
+    </div>
 
-    <h2>🖼️ Qualitative Examples</h2>
-    <p>Examples include multi-object segmentation in videos, instance tracking across frames, and prompt-based refinement using few clicks or text.</p>
-
-    <h2>🚧 Limitations</h2>
-    <ul>
-      <li>Struggles with <strong>fast motion blur</strong> or low-light video conditions.</li>
-      <li>Fails to segment rare object categories with very few annotations in the training set.</li>
-    </ul>
-
-    <h2>🌟 Suggested Improvements</h2>
-    <ul>
-      <li>Incorporate multi-scale temporal transformers for longer context aggregation.</li>
-      <li>Fine-tune with domain-specific datasets (e.g., medical or autonomous driving).</li>
-    </ul>
-
-    <h2>✅ Conclusion</h2>
-    <p><strong>SAM 2</strong> sets a new standard for general-purpose segmentation across modalities. It is an important step toward embodied AI, enabling large-scale interactive annotation, robotic perception, and vision-language integration.</p>
-
-    <footer style="margin-top: 2rem; font-size: 0.9rem; color: gray;">Reviewed by Linlin Zhang | Spring 2025 | COMS6998E</footer>
+    <footer style="margin-top: 3rem; font-size: 0.85rem; color: gray;">
+      Reviewed by Linlin Zhang | Spring 2025 – Columbia University
+    </footer>
   </div>
 </body>
 </html>
