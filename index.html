@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>COMS6998E Paper Reviews – Linlin Zhang</title>
+  <title>COMS6998E Portfolio – Linlin Zhang</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -33,19 +33,19 @@
     .container {
       max-width: 900px;
       margin: 2rem auto;
-      padding: 1rem;
+      padding: 1.5rem;
       background-color: white;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     .review {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
     .badge {
       display: inline-block;
       background-color: #ffd700;
       color: black;
-      padding: 0.2rem 0.5rem;
+      padding: 0.2rem 0.6rem;
       margin-left: 0.5rem;
       font-size: 0.8rem;
       border-radius: 5px;
@@ -54,8 +54,8 @@
 </head>
 <body>
   <header>
-    <h1>Linlin Zhang – COMS6998E Paper Reviews & Reflections</h1>
-    <p>Showcasing my critical analysis and engagement with robotics research</p>
+    <h1>Linlin Zhang – COMS6998E: Robot Learning Portfolio</h1>
+    <p>Critical reviews, reflections, and final deliverables from Spring 2025</p>
   </header>
 
   <nav>
@@ -69,54 +69,56 @@
     <h2>📝 Paper Reviews</h2>
 
     <div class="review">
-      <h3>1. "HumanPlus: Humanoid Shadowing and Imitation from Humans" <span class="badge">✅ Submitted</span></h3>
-      <strong>Main Contribution:</strong>
-      <p>Introduces a real-time teleoperation and imitation learning framework enabling humanoid robots to learn from human demonstrations in natural environments.</p>
-      <strong>Limitations & Failure Cases:</strong>
-      <p>Fails to generalize to tasks with significantly different dynamics or where vision-based pose estimation is unreliable; also lacks robustness in cluttered scenes.</p>
-      <strong>Possible Improvements:</strong>
-      <p>Incorporate multimodal sensing (e.g., tactile or depth); fine-tune foundation models on diverse human-robot interaction datasets to enhance generalization.</p>
+      <h3>1. HumanPlus: Humanoid Shadowing and Imitation from Humans <span class="badge">✅ Submitted</span></h3>
+      <p><strong>Main Contribution:</strong><br>
+      Proposes a system that combines real-time human teleoperation and offline imitation learning to train humanoid robots to perform natural movements and autonomous tasks.</p>
+      <p><strong>Limitations & Failure Cases:</strong><br>
+      The system struggles to generalize to tasks with significantly different dynamics. It is also limited in environments with occlusions or inconsistent pose estimation due to reliance on vision alone.</p>
+      <p><strong>Suggested Improvements:</strong><br>
+      Integrating multimodal sensing (e.g., depth or tactile feedback) and incorporating fine-tuned large foundation models could improve generalization and robustness.</p>
     </div>
 
     <div class="review">
-      <h3>2. "RoboTAP: Learning to Interact via Contact Under Sparse Tactile Supervision" <span class="badge">✨ Extra Review</span></h3>
-      <strong>Main Contribution:</strong>
-      <p>Presents a framework that uses sparse tactile feedback to guide exploration and manipulation tasks, minimizing the reliance on visual data.</p>
-      <strong>Limitations & Failure Cases:</strong>
-      <p>Performance drops sharply in dynamic or deformable object scenarios; the tactile sensor limitations are not adequately addressed.</p>
-      <strong>Possible Improvements:</strong>
-      <p>Train with synthetic tactile data from physics simulators to enrich training distribution; integrate proprioceptive feedback to stabilize predictions.</p>
+      <h3>2. RoboTAP: Learning to Interact via Contact Under Sparse Tactile Supervision <span class="badge">✨ Extra Review</span></h3>
+      <p><strong>Main Contribution:</strong><br>
+      Introduces a method that leverages sparse tactile signals to guide contact-rich interactions, enabling manipulation tasks with limited visual input.</p>
+      <p><strong>Limitations & Failure Cases:</strong><br>
+      Shows reduced performance when applied to deformable or dynamic objects. It also depends heavily on the tactile sensor’s precision, which may not generalize across hardware.</p>
+      <p><strong>Suggested Improvements:</strong><br>
+      Augmenting the training with synthetic tactile data and integrating proprioceptive signals could enhance adaptability and policy stability.</p>
     </div>
 
-    <!-- Add more review entries below as needed -->
+    <!-- Add additional review entries here -->
   </div>
 
   <div class="container" id="project">
-    <h2>📂 Course Project</h2>
-    <p><strong>Title:</strong> Tactile-based Online Active Shape Exploration and Reconstruction</p>
-    <p><strong>Summary:</strong> We developed a reinforcement learning system to train a UR5e robot to explore unseen 3D objects using a GelSlim 3.0 tactile sensor and a PointNet-based representation. Our system encourages efficient surface coverage and reconstruction.</p>
-    <p><strong>Link:</strong> <a href="https://github.com/linlinzhanglab/tactile-rl">Project GitHub</a></p>
+    <h2>📂 Final Course Project</h2>
+    <p><strong>Title:</strong> Tactile-Based Online Active Shape Exploration and Reconstruction</p>
+    <p><strong>Summary:</strong><br>
+    We developed an RL-based framework where a UR5e robot, equipped with a GelSlim 3.0 sensor, learns to explore and reconstruct the shape of unseen 3D objects using sparse tactile feedback. The policy is trained to maximize surface coverage efficiently by leveraging a PointNet-based representation.</p>
+    <p><strong>Repository:</strong> <a href="https://github.com/linlinzhanglab/tactile-rl" target="_blank">GitHub – tactile-rl</a></p>
   </div>
 
   <div class="container" id="presentation">
-    <h2>🎤 Presentation</h2>
-    <p><strong>Paper Presented:</strong> TBD (You can add this if you had one)</p>
-    <p><strong>Slides:</strong> (upload and link your slides)</p>
+    <h2>🎤 Paper Presentation</h2>
+    <p><strong>Presented Paper:</strong> HumanPlus: Humanoid Shadowing and Imitation from Humans</p>
+    <p><strong>Slides:</strong> <em>(Add your link here)</em></p>
   </div>
 
   <div class="container" id="insights">
     <h2>💡 Insights & Participation</h2>
-    <h3>Unitree Robotics Talk (May 9)</h3>
-    <p>I attended the talk and demo of Unitree’s Go2 and G1 robots. The key insight was the emphasis on foundation models being critical for enabling general-purpose embodied AI. The importance of robust physical hardware was also highlighted, especially in the context of scaling AGI through embodied agents.</p>
 
-    <h3>Ed Discussion Contributions</h3>
+    <h3>📍 Unitree Robotics Talk – May 9, 2025</h3>
+    <p>I attended the live demo and presentation of Unitree’s Go2 and G1 robots. The talk emphasized the role of robust physical systems and large foundation models in realizing general-purpose embodied AI. This deepened my understanding of how real-world hardware integrates with foundational research.</p>
+
+    <h3>💬 Ed Discussion Contributions</h3>
     <ul>
-      <li>Posted a clarification on the architecture used in the RoboTAP paper – 3 upvotes.</li>
-      <li>Asked about integrating tactile feedback with foundation models for policy learning.</li>
+      <li>Clarified the architecture used in RoboTAP (received 3 upvotes)</li>
+      <li>Asked about fusing tactile input with foundation models for more stable policies</li>
     </ul>
 
-    <h3>Today’s Reflection</h3>
-    <p>This course deepened my understanding of robot learning systems and encouraged me to think critically about their limitations and real-world deployment challenges. I took extra effort to review more than 10 papers and participated actively online to make up for my low in-class score.</p>
+    <h3>🧠 Final Reflection</h3>
+    <p>This course significantly enriched my understanding of robot learning. I submitted more than the required number of paper reviews and actively contributed to Ed discussions to make up for limited in-class participation. The process of reviewing diverse papers and presenting gave me a well-rounded view of both foundational and cutting-edge robotics research.</p>
   </div>
 </body>
 </html>
