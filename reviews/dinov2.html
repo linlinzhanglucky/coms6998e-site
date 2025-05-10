@@ -1,22 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>DINOv2 – Paper Review</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body { font-family: Arial, sans-serif; margin: 2rem; background: #fdfdfd; color: #222; }
-    h1, h2, h3 { color: #1e2d50; }
-    .section { margin-bottom: 2rem; }
-    a { color: #2c5cc5; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #fdfdfd;
+      color: #222;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #1e2d50;
+      margin-top: 2rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    .section {
+      margin-bottom: 2.5rem;
+    }
+    a {
+      color: #2c5cc5;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
     .badge {
       display: inline-block;
       background-color: #ffd700;
       color: #000;
-      padding: 0.2rem 0.5rem;
+      padding: 0.25rem 0.6rem;
       font-size: 0.8rem;
-      border-radius: 5px;
-      margin-left: 0.5rem;
+      border-radius: 6px;
+      margin-left: 0.6rem;
+      vertical-align: middle;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    footer {
+      margin-top: 4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ddd;
+      font-size: 0.9rem;
+      color: gray;
+      text-align: center;
     }
   </style>
 </head>
@@ -29,51 +62,52 @@
   <div class="section">
     <h2>🧠 Main Contributions</h2>
     <ul>
-      <li>Introduces <strong>DINOv2</strong>, a series of high-performing self-supervised visual transformers trained on a curated dataset (LVD-142M) without labels.</li>
-      <li>Combines and scales up techniques from DINO, iBOT, SwAV, and KoLeo regularization into a fast, memory-efficient training pipeline.</li>
-      <li>Surpasses previous self-supervised and even weakly-supervised (e.g., OpenCLIP) models across benchmarks like ImageNet, ADE20K, and iNaturalist with frozen features alone.</li>
-      <li>Releases open-source models, code, and a training recipe suitable for large ViTs (up to ViT-g/14 with 1B+ parameters).</li>
+      <li>Proposes <strong>DINOv2</strong>, a powerful self-supervised ViT framework trained on a curated 142M image dataset (LVD-142M) without labels.</li>
+      <li>Integrates techniques from DINO, iBOT, SwAV, and KoLeo regularization into a scalable, memory-efficient training recipe.</li>
+      <li>Outperforms self- and weakly-supervised models (like OpenCLIP) on standard benchmarks using frozen features only.</li>
+      <li>Provides open-source code, models, and recipes, including for ViT-g/14 (1B+ parameters).</li>
     </ul>
   </div>
 
   <div class="section">
     <h2>⚠️ Limitations & Failure Cases</h2>
     <ul>
-      <li>Though text-free, DINOv2 still requires large compute (20+ A100 GPUs) and significant carbon emissions (~3.7 tCO₂e per run).</li>
-      <li>Performance is sensitive to image resolution and curated data—uncurated data (e.g. raw web crawl) leads to weaker features.</li>
-      <li>Despite gains in fairness over SEERv2, DINOv2 still shows regional performance disparities (Africa -25.7% vs Europe).</li>
-      <li>Fails to reach absolute state-of-the-art in dense prediction tasks unless plugged into strong decoders (e.g. Mask2Former).</li>
+      <li>Still demands heavy computational resources: 20+ A100 GPUs and ~3.7 tCO₂e per full run.</li>
+      <li>Feature quality degrades on uncurated or noisy data sources.</li>
+      <li>Despite fairness improvements, notable geographic performance gaps remain (e.g., -25.7% in Africa vs Europe).</li>
+      <li>For dense tasks, performance lags unless paired with high-end decoders (e.g., Mask2Former).</li>
     </ul>
   </div>
 
   <div class="section">
     <h2>🚀 Key Technical Innovations</h2>
     <ul>
-      <li><strong>Discriminative SSL at Scale</strong>: Combines DINO+iBOT objectives with Sinkhorn centering and KoLeo regularization.</li>
-      <li><strong>Curated Dataset Creation</strong>: LVD-142M dataset built via self-supervised visual similarity retrieval from 1.2B web images.</li>
-      <li><strong>Memory Efficiency</strong>: Implements FlashAttention, efficient stochastic depth, and FSDP for scalable ViT training.</li>
-      <li><strong>Distillation Pipeline</strong>: Distills ViT-g/14 to smaller models (e.g., ViT-B/14) using EMA-student learning.</li>
+      <li><strong>Discriminative SSL</strong> using iBOT+DINO objectives, Sinkhorn centering, and KoLeo loss.</li>
+      <li><strong>LVD-142M Dataset</strong> curated from 1.2B images via self-supervised retrieval.</li>
+      <li><strong>Efficient Scaling</strong>: FlashAttention, FSDP, and optimized training for ViT-g models.</li>
+      <li><strong>Distillation</strong>: ViT-g/14 distilled into ViT-B/14 with EMA-student learning.</li>
     </ul>
   </div>
 
   <div class="section">
     <h2>📈 Empirical Results</h2>
     <ul>
-      <li><strong>ImageNet-1k (linear probe):</strong> 86.5% (ViT-g/14, frozen) — surpassing OpenCLIP and EVA-CLIP.</li>
-      <li><strong>ADE20k segmentation:</strong> 53.0 mIoU (linear + multiscale, ViT-g).</li>
-      <li><strong>iNaturalist 2021:</strong> 85.7% accuracy — +9.7% over OpenCLIP.</li>
-      <li><strong>Robustness:</strong> +29.6% improvement over iBOT on ImageNet-A (adversarial test set).</li>
+      <li><strong>ImageNet-1k (linear probe):</strong> 86.5% with ViT-g/14 (frozen).</li>
+      <li><strong>ADE20k (segmentation):</strong> 53.0 mIoU using ViT-g with multiscale.</li>
+      <li><strong>iNaturalist:</strong> 85.7% top-1 accuracy, +9.7% over OpenCLIP.</li>
+      <li><strong>Robustness:</strong> +29.6% on ImageNet-A over previous iBOT baseline.</li>
     </ul>
   </div>
 
   <div class="section">
     <h2>💡 Reflections</h2>
-    <p>DINOv2 shows that strong, general-purpose visual representations do not require labels or text. With careful data curation and architectural tuning, self-supervised ViTs rival and sometimes surpass supervised and CLIP-style models. This is an important step toward robust, reusable vision backbones for robotics, AR/VR, and embodied AI.</p>
-    <p>Its performance on patch-level tasks also suggests future potential for pixel-level control policies and multimodal grounding, especially when combined with tactile inputs or LLMs in embodied agents.</p>
+    <p>DINOv2 demonstrates that label-free, scalable vision backbones can match or exceed performance of supervised and multimodal models. It is a strong candidate for robotic and embodied systems where language is absent or weak.</p>
+    <p>Its robustness and frozen-feature generality make it especially relevant for applications in AR/VR, low-latency robotics, and multi-sensor fusion (e.g., with tactile or proprioceptive inputs).</p>
   </div>
 
-  <footer style="margin-top: 3rem; font-size: 0.9rem; color: gray;">
-    Reviewed by Linlin Zhang – Spring 2025 – COMS6998E: Robot Perception & Learning
+  <footer>
+    Reviewed by Linlin Zhang – Spring 2025<br/>
+    COMS6998E: Robot Perception & Learning
   </footer>
 
 </body>
