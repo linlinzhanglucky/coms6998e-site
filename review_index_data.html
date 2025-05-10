@@ -1,54 +1,117 @@
-<!-- This file lists all the readings in COMS6998E - Spring 2025 -->
-<!-- You will link each paper to its corresponding HTML review -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>COMS6998E Paper Index</title>
+  <meta charset="UTF-8" />
+  <title>COMS6998E Paper Review Index – Linlin Zhang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body { font-family: Arial, sans-serif; padding: 2rem; background: #f4f4f4; }
-    h1, h2 { color: #1e2d50; }
-    ul { list-style-type: none; padding-left: 0; }
-    li { margin-bottom: 0.5rem; }
-    a { color: #2c5cc5; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .week { margin-top: 2rem; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1e2d50;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #32456b;
+    }
+    nav a {
+      color: white;
+      padding: 1rem;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background-color: #465f91;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      color: #1e2d50;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 1rem;
+    }
+    li {
+      margin: 0.5rem 0;
+    }
+    li a {
+      color: #2c5cc5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    li a:hover {
+      text-decoration: underline;
+    }
+    .week {
+      margin-top: 2rem;
+    }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: gray;
+    }
   </style>
 </head>
 <body>
-  <h1>📚 COMS6998E Paper Reviews</h1>
-  <p>This is a navigable list of all the required papers for review in the course. Each paper will link to a dedicated HTML file with my in-depth review.</p>
+  <header>
+    <h1>📚 COMS6998E Paper Review Index</h1>
+    <p>All review files authored by Linlin Zhang (Spring 2025)</p>
+  </header>
 
-  <div class="week">
-    <h2>Week 3 – 2D Perception</h2>
-    <ul>
-      <li><a href="reviews/segment-anything-2.html">Segment Anything 2 (2024)</a></li>
-      <li><a href="reviews/dinov2.html">DINOv2 (2023)</a></li>
-      <li><a href="reviews/emerging-properties.html">Emerging Properties in Self-Supervised Vision Transformers (2021)</a></li>
-    </ul>
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="review_index_data.html">📖 All Reviews</a>
+    <a href="https://github.com/linlinzhanglucky/coms6998e-site" target="_blank">📂 GitHub Repo</a>
+  </nav>
+
+  <div class="container">
+    <p>This page links to all my detailed review write-ups for papers in COMS6998E. Click any title below to view the full analysis.</p>
+
+    <div class="week">
+      <h2>Week 3 – 2D Perception</h2>
+      <ul>
+        <li><a href="reviews/dinov2.html">DINOv2 (2023)</a></li>
+        <li><a href="reviews/segment-anything-2.html">Segment Anything 2 (2024)</a></li>
+        <li><a href="reviews/emerging-properties.html">Emerging Properties in Self-Supervised Vision Transformers (2021)</a></li>
+      </ul>
+    </div>
+
+    <div class="week">
+      <h2>Week 4 – Representation Learning</h2>
+      <ul>
+        <li><a href="reviews/r3m.html">R3M: A Universal Visual Representation for Robotic Manipulation (2022)</a></li>
+        <li><a href="reviews/d3fields.html">D3Fields (2024)</a></li>
+      </ul>
+    </div>
+
+    <div class="week">
+      <h2>Week 5 – Gaussian Splatting & Tactile Perception</h2>
+      <ul>
+        <li><a href="reviews/graspsplats.html">GraspSplats (2024)</a></li>
+        <li><a href="reviews/3d-vitac.html">3D-ViTac (2024)</a></li>
+      </ul>
+    </div>
+
+    <!-- Add additional weeks below -->
+
+    <footer>
+      Last updated: Spring 2025 | Author: Linlin Zhang
+    </footer>
   </div>
-
-  <div class="week">
-    <h2>Week 4 – Representation Learning</h2>
-    <ul>
-      <li><a href="reviews/r3m.html">R3M: A Universal Visual Representation for Robotic Manipulation (2022)</a></li>
-      <li><a href="reviews/d3fields.html">D3Fields (2024)</a></li>
-    </ul>
-  </div>
-
-  <div class="week">
-    <h2>Week 5 – Gaussian Splatting</h2>
-    <ul>
-      <li><a href="reviews/graspsplats.html">GraspSplats (2024)</a></li>
-      <li><a href="reviews/3d-vitac.html">3D-ViTac (2024)</a></li>
-    </ul>
-  </div>
-
-  <!-- Add more weeks/papers here -->
-
-  <footer style="margin-top: 3rem; font-size: 0.9rem; color: gray;">
-    Last updated: Spring 2025 | Author: Linlin Zhang
-  </footer>
 </body>
 </html>
